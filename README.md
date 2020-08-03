@@ -3,7 +3,7 @@ To execute:
 1. Create a hidden aws directory in your home directory:
 
 ```bash
-mkdir ~./aws
+mkdir ~/.aws
 ```
 
 2. Create a config file for Amazon Web Services:
