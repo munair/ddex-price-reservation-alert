@@ -1,4 +1,6 @@
-To execute:
+## Setup Guide
+
+To execute, fire up an EC2 instance running Ubuntu 18.04.4 LTS (GNU/Linux 5.3.0-1023-aws x86_64):
 
 1. Create a hidden aws directory in your home directory:
 
@@ -35,10 +37,10 @@ sed -i "/^reservationprice =/c\reservationprice = 398.5" bid-reservation-price-a
 # It is unnecessary here, but is included for safety.
 ```
 
-5. Create a cronjob:
+5. Run the following command:
 
 ```bash
-crontab -e 0/2 0 0 ? * * * >/dev/null bid-reservation-price-alert.py 2>&1
+/usr/bin/python3 /home/ubuntu/ddex-price-reservation-alert/bid-reservation-price-alert.py &
 ```
 
-6. Check the /tmp/bid-reservation-price-alert.err log file for errors and modify the code to use logger.DEBUG(bidprice) on the first use to ensure the cron job is properly configured.
+6. Check the /tmp/bid-reservation-price-alert.err log file for errors and ensure the script job is properly detached.
