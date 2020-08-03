@@ -67,10 +67,10 @@ sed -i "s/reservationprice =.*/reservationprice = 382.15/" poller.py
 6. Run the following command to start the poller:
 
 ```bash
-nohup /usr/bin/python3 /home/ubuntu/ddex-price-reservation-alert/poller.py &
+nohup python3 poller.py &
 ```
 
-7. Check the /tmp/poller.err log file for errors and ensure the script job is properly detached:
+7. Check the /tmp/poller.err log file for errors and ensure the job is properly detached:
 
 ```bash
 tail -f /tmp/poller.err
