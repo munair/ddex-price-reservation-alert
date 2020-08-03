@@ -27,18 +27,34 @@ aws_secret_access_key = XXXXX
 [CTRL-D]
 ```
 
-4. Set the reservation price:
+4. Choose your poller:
 
 ```bash
-sed -i "/reservationprice =/c\reservationprice = 398.5" bid-reservation-price-alert.py
+cp /home/ubuntu/ddex/poller/bid-reservation-price-alert.py poller.py
+```
+
+5. Set the reservation price:
+
+```bash
+sed -i "/reservationprice =/c\reservationprice = 398.5" poller.py
 # Note:
 # The /c (or "change line") flag tells BASH to replace the whole line.
 ```
 
-5. Run the following command:
+6. Run the following command:
 
 ```bash
-/usr/bin/python3 /home/ubuntu/ddex-price-reservation-alert/bid-reservation-price-alert.py &
+nohup /usr/bin/python3 /home/ubuntu/ddex/poller.py &
 ```
 
-6. Check the /tmp/bid-reservation-price-alert.err log file for errors and ensure the script job is properly detached.
+7. Check the /tmp/poller.err log file for errors and ensure the script job is properly detached:
+
+```bash
+tail -f /tmp/poller.err
+```
+
+8. Run monitor.bash to get an alert the minute the poller process dies:
+
+```bash
+bash monitor.bash
+```
