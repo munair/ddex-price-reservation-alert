@@ -22,6 +22,7 @@ cat > ~/.aws/credentials
 [default]
 aws_access_key_id = XXXXX
 aws_secret_access_key = XXXXX
+[CTRL-D]
 ```
 
 4. Set the reservation price:
@@ -29,7 +30,7 @@ aws_secret_access_key = XXXXX
 ```bash
 sed -i "/^reservationprice =/c\reservationprice = 398.5" bid-reservation-price-alert.py
 # Note:
-# The /c (or "change line") flag tell BASH to replace the whole line.
+# The /c (or "change line") flag tells BASH to replace the whole line.
 # The caret (^) matches the beginning of a line.
 # It is unnecessary here, but is included for safety.
 ```
