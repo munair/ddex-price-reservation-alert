@@ -17,5 +17,5 @@ fi
 EOF
 
 # update cron to monitor the poller process with informer.bash
-echo "* * * * * bash /tmp/informer.bash 1>/tmp/informer.out 2>/tmp/informer.err" >> /tmp/crontab.informer
+echo "* * * * * /bin/bash /tmp/informer.bash 1>/tmp/informer.out 2>/tmp/informer.err" >> /tmp/crontab.informer
 crontab /tmp/crontab.informer && rm /tmp/crontab.informer
